@@ -42,12 +42,13 @@ function handler_request_reply(ev){
             var newContent2 = document.createTextNode(text2); // テキストノードを作成
             pcreate.appendChild(newContent2);
             var parentDiv = document.getElementById("honbun");
+            var textForm = document.getElementById('talkapi__input');
+            textForm.value = '';
             // 追加
             parentDiv.appendChild(pcreate);
             //- 出力
             //document.getElementById('talkapi__reply').innerHTML = reply;
         });
     });
-    var textForm = document.getElementById('talkapi__input');
-    textForm.value = '';
+    
 }
