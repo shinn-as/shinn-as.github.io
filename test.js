@@ -48,5 +48,6 @@ function handler_request_reply(ev){
             //document.getElementById('talkapi__reply').innerHTML = reply;
         });
     });
-
+    var textForm = document.getElementById('talkapi__input');
+    textForm.value = '';
 }
