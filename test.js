@@ -20,7 +20,7 @@ function handler_request_reply(ev){
     /*---------------------------------------*/
     let formdata = new FormData();
     //- apikeyパラメーター 
-    formdata.append('apikey','<取得したTalkAPIのAPIKEY>');
+    formdata.append('apikey','DZZff02h0tFvmNIDQVZKg6PHxY0hlsWu');
     //- コメント
     formdata.append('query',comment);
 
