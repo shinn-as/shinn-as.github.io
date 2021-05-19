@@ -4,10 +4,12 @@ header {
     height: 100px;
     background-color: darkgrey;
     align-items: center;
-      .title {
+    
+  }
+  .title {
     margin-right: auto;
   }
-  li+ li {
+  header li+ li {
     border-left: 1px solid #333;
    }
   .menu-item {
@@ -15,8 +17,6 @@ header {
     display: inline-block;
     padding: 10px;
   }
-  }
-   
 
   .select{
     display: block;
