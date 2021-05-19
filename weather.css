@@ -1,0 +1,40 @@
+header {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-color: darkgrey;
+    align-items: center;
+  }
+   
+  .title {
+    margin-right: auto;
+  }
+  li+ li {
+    border-left: 1px solid #333;
+   }
+  .menu-item {
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+  }
+  .select{
+    display: block;
+    padding: 10px 0px;
+  }
+  .radiobutton {
+    display: none;
+  }
+  label {
+    background-color: white;
+    padding: 5px 10px;
+  }
+  .radiobutton:checked + label {
+    background-color: gainsboro;
+  }
+  .sita{
+    border-bottom: solid 3px grey;
+  }
+  .huka{
+    border-bottom: dashed 3px grey;
+    border-top: dashed 3px grey;
+  }

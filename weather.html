@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8" />
+	<title>shinn Lab</title>
+	<meta name="description" content="サイトキャプションを入力" />
+	<meta name="keywords" content="サイトキーワードを,で区切って入力" />
+	<link rel="stylesheet" href="weather.css" />
+	<!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+	<script src="weather.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+
+<body>
+	<!----- ヘッダー ----->
+	<header>
+		<h2 class="title">weather forecast</h2>
+		<nav class="nav">
+			<ul class="menu-group">
+				<li class="menu-item"><a href="index.html">TOP</a></li>
+				<li class="menu-item"><a href="mailto:asdfghkhk12@gmail.com">contact</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!----- ヘッダー END ----->
+
+	<!----- メインコンテンツ ----->
+	<article>
+		<div class="select">
+			<select name="地方" id="tihou" onchange="tihouf(this.value)">
+				<option value="北海道東北">北海道・東北</option>
+				<option value="関東">関東</option>
+				<option value="中部">中部</option>
+				<option value="近畿">近畿</option>
+				<option value="中国">中国</option>
+				<option value="四国">四国</option>
+				<option value="九州沖縄">九州・沖縄</option>
+			</select>
+			<select name="都道府県" id="ken" onchange="kenf(this.value)">
+			</select>
+			<select name="地域" id="tiiki" onchange="forecast()">
+			</select>
+		</div>
+
+		<div class="radiobox" id="sel">
+			<input id="radio1" class="radiobutton" name="hoge" type="radio" value="0" onchange="forecast()" checked="checked"/>
+			<label for="radio1">今日</label>
+			<input id="radio2" class="radiobutton" name="hoge" type="radio" value="1" onchange="forecast()"/>
+			<label for="radio2">明日</label>
+			<input id="radio3" class="radiobutton" name="hoge" type="radio" value="2" onchange="forecast()"/>
+			<label for="radio3">明後日</label>
+		</div>
+		<div id="honbun">
+			
+		</div>
+	</article>
+	<!----- メインコンテンツ END ----->
+
+	<!----- フッター ----->
+	<!----- フッター END ----->
+</body>
+
+</html>
