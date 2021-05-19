@@ -4,9 +4,7 @@ header {
     height: 100px;
     background-color: darkgrey;
     align-items: center;
-  }
-   
-  .title {
+      .title {
     margin-right: auto;
   }
   li+ li {
@@ -17,6 +15,9 @@ header {
     display: inline-block;
     padding: 10px;
   }
+  }
+   
+
   .select{
     display: block;
     padding: 10px 0px;
