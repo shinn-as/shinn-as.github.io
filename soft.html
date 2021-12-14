@@ -41,6 +41,26 @@
     display: inline-block;
     padding: 10px;
   }
+    details {
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      padding: .5em .5em 0;
+  }
+
+  summary {
+      font-weight: bold;
+      margin: -.5em -.5em 0;
+      padding: .5em;
+  }
+
+  details[open] {
+      padding: .5em;
+  }
+
+  details[open] summary {
+      border-bottom: 1px solid #aaa;
+      margin-bottom: .5em;
+  }
   </style>
 
   <body>
@@ -53,6 +73,10 @@
           </ul>
         </nav>
     </header>
+    <details>
+      <summary>重要</summary>
+      バグについて:新しいタブ・ページ遷移後戻ってくるときに正しく表示されない可能性があります。これはキャッシュに起因するもので対処するためには動的ホスティングまたは、jsの変更を行わなければなりません今のところは対処の予定がないためバグが起きたら再読み込みをお願いします
+    </details>
     <p style="color:red">バグについて:新しいタブ・ページ遷移後戻ってくるときに正しく表示されない可能性があります。これはキャッシュに起因するもので対処するためには動的ホスティングまたは、jsの変更を行わなければなりません今のところは対処の予定がないためバグが起きたら再読み込みをお願いします</p>
     <div class="mokuzi">
       <p>授業回</p>
