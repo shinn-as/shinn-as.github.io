@@ -8,76 +8,80 @@
   </head>
 
   <style>
+    .tate {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
     .mokuzi {
       display: flex;
     }
-    .long{
+    .long {
       word-break: break-all;
     }
-    .switchArea {
-      display: flex;
-      position: absolute;
-      top: 10px;
-      right: 10px;
-    }
+
     header {
-    display: flex;
-    width: 100%;
-    height: 100px;
-    background-color: darkgrey;
-    align-items: center;
-   
-  }
-   
-   .title {
-    margin-right: auto;
-  }
-  
-  header li+ li {
-    border-left: 1px solid #333;
-   }
-  .menu-item {
-    list-style: none;
-    display: inline-block;
-    padding: 10px;
-  }
+      display: flex;
+      width: 100%;
+      height: 100px;
+      background-color: darkgrey;
+      align-items: center;
+    }
+
+    .title {
+      margin-right: auto;
+    }
+
+    header li + li {
+      border-left: 1px solid #333;
+    }
+    .menu-item {
+      list-style: none;
+      display: inline-block;
+      padding: 10px;
+    }
     details {
       border: 1px solid #aaa;
       border-radius: 4px;
-      padding: .5em .5em 0;
-  }
+      padding: 0.5em 0.5em 0;
+    }
 
-  summary {
+    summary {
       font-weight: bold;
-      margin: -.5em -.5em 0;
-      padding: .5em;
-  }
+      margin: -0.5em -0.5em 0;
+      padding: 0.5em;
+    }
 
-  details[open] {
-      padding: .5em;
-  }
+    details[open] {
+      padding: 0.5em;
+    }
 
-  details[open] summary {
+    details[open] summary {
       border-bottom: 1px solid #aaa;
-      margin-bottom: .5em;
-  }
+      margin-bottom: 0.5em;
+    }
+    .kakusi {
+      color: white;
+    }
   </style>
 
   <body>
     <header>
-        <h1 class="title">GAS API</h1>
-        <nav class="nav">
-          <ul class="menu-group">
-            <li class="menu-item"><a href="index.html">TOP</a></li>
-            <li class="menu-item"><a href="mailto:asdfghkhk12@gmail.com">contact</a></li>
-          </ul>
-        </nav>
+      <h1 class="title">GAS API</h1>
+      <nav class="nav">
+        <ul class="menu-group">
+          <li class="menu-item"><a href="index.html">TOP</a></li>
+          <li class="menu-item">
+            <a href="mailto:asdfghkhk12@gmail.com">contact</a>
+          </li>
+        </ul>
+      </nav>
     </header>
-    <details style="color:red">
+    <details style="color: red">
       <summary>重要</summary>
       バグについて:新しいタブ・ページ遷移後戻ってくるときに正しく表示されない可能性があります。これはキャッシュに起因するもので対処するためには動的ホスティングまたは、jsの変更を行わなければなりません。今のところは対処の予定がないためバグが起きたら再読み込みをお願いします。
     </details>
-    
+
     <div class="mokuzi">
       <p>授業回</p>
       <select name="num" id="number" onchange="kousin(this.value)">
@@ -94,44 +98,69 @@
         <option value="13">13</option>
         <option value="14">14</option>
       </select>
+      <div class="tate">
+        <label
+          ><input
+            type="checkbox"
+            name="new-check"
+            id="new-check"
+            onchange="newtab()"
+          />新しいタブとして開く</label
+        >
+        <label
+          ><input
+            type="checkbox"
+            name="pro"
+            id="pro"
+            onchange="problem1()"
+          />問題概要非表示</label
+        >
+      </div>
     </div>
-    <div class="switchArea">
-      <label
-        ><input
-          type="checkbox"
-          name="new-check"
-          id="new-check"
-          onchange="newtab()"
-        />新しいタブとして開く</label
-      >
-    </div>
+    <div class="switchArea"></div>
 
     <table border="1" id="tab"></table>
   </body>
   <script>
     kousin("3");
     function newtab() {
-        let tmp = document.getElementsByName("ntab")
-        let ch = document.getElementById("new-check");
+      let tmp = document.getElementsByName("ntab");
+      let ch = document.getElementById("new-check");
 
-        if (ch.checked) {
-          for (var i = 0; i < tmp.length; i++) {
-            //id追加
-            tmp[i].setAttribute("target", "_blank");
-          }
-        } else {
-            for (var i = 0; i < tmp.length; i++) {
-            //id追加
-            tmp[i].removeAttribute("target");
-          }
-          
+      if (ch.checked) {
+        for (var i = 0; i < tmp.length; i++) {
+          //id追加
+          tmp[i].setAttribute("target", "_blank");
+        }
+      } else {
+        for (var i = 0; i < tmp.length; i++) {
+          //id追加
+          tmp[i].removeAttribute("target");
         }
       }
+    }
+
+    function problem1() {
+      let tmp = document.getElementsByName("prob");
+      let ch = document.getElementById("pro");
+
+      if (ch.checked) {
+        for (var i = 0; i < tmp.length; i++) {
+          //id追加
+          tmp[i].setAttribute("class","kakusi");
+        }
+      } else {
+        for (var i = 0; i < tmp.length; i++) {
+          //id追加
+          tmp[i].removeAttribute("class");
+        }
+      }
+    }
+
     function kousin(kai) {
       const endpoint =
         "https://script.google.com/macros/s/AKfycbxKPwcDdvSJ75p2dtFmBneQAXWGo1vilJfc1FlIexkcLmA5rXUeCSOoQgWoqht3NMXM5Q/exec?text=" +
         kai;
-
 
       //APIを使って非同期データを取得する
       fetch(endpoint)
@@ -167,16 +196,21 @@
             let data2 = document.createElement("td");
             let data3 = document.createElement("td");
             let url = document.createElement("a");
+            let pt = document.createElement("p");
+
             tr.classList.add("long");
             url.href = arr[i]["url"];
             url.name = "ntab";
             url.classList.add("long");
+            pt.setAttribute("name","prob");
+
             if (ch.checked) {
               url.target = "_blank";
             }
             url.innerHTML = arr[i]["url"];
             data.innerHTML = arr[i]["year"];
-            data2.innerHTML = arr[i]["problem"];
+            pt.innerHTML = arr[i]["problem"];
+            data2.appendChild(pt);
             data3.appendChild(url);
             tr.appendChild(data);
             tr.appendChild(data2);
