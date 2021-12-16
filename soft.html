@@ -63,6 +63,11 @@
     .kakusi {
       color: white;
     }
+    .torikesi {
+      text-decoration: line-through;
+    }
+
+    
   </style>
 
   <body>
@@ -79,7 +84,7 @@
     </header>
     <details style="color: red">
       <summary>重要</summary>
-      バグについて:新しいタブ・ページ遷移後戻ってくるときに正しく表示されない可能性があります。これはキャッシュに起因するもので対処するためには動的ホスティングまたは、jsの変更を行わなければなりません。今のところは対処の予定がないためバグが起きたら再読み込みをお願いします。
+      バグについて:新しいタブ・ページ遷移後戻ってくるときに正しく表示されない可能性があります。これはキャッシュに起因するもので対処するためには動的ホスティングまたは、jsの変更を行わなければなりません。<span class="torikesi">今のところは対処の予定がないためバグが起きたら再読み込みをお願いします。</span>(復旧済みか検証中)
     </details>
 
     <div class="mokuzi">
@@ -122,7 +127,7 @@
     <table border="1" id="tab"></table>
   </body>
   <script>
-    kousin("3");
+    kousin(document.getElementById('number').value);
     function newtab() {
       let tmp = document.getElementsByName("ntab");
       let ch = document.getElementById("new-check");
@@ -216,6 +221,8 @@
             tr.appendChild(data2);
             tr.appendChild(data3);
             tab.appendChild(tr);
+            newtab();
+            problem1();
           }
         });
     }
