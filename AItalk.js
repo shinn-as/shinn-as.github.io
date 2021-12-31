@@ -22,11 +22,11 @@ function handler_request_reply(ev){
    
     let formdata = new FormData();
     //- apikeyパラメーター 
-    formdata.append('apikey','DZZff02h0tFvmNIDQVZKg6PHxY0hlsWu');
+    formdata.append('apikey','DZZdqD82P5kqvZQervYkIrkTWDsUAkaR');
     //- コメント
     formdata.append('query',comment);
 
-    fetch('https://a3rt.recruit.co.jp/talk/v1/smalltalk',{
+    fetch('https://api.a3rt.recruit.co.jp/talk/v1/smalltalk',{
         method: 'post',
         body: formdata,
     }).then(response => {
