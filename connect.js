@@ -1,4 +1,8 @@
-
+window.onload = function(){
+  if (document.cookie.indexOf('session') === -1) {} else {
+    window.location.href =document.referrer
+  }
+}
 
 
 function errorlog(error) {
