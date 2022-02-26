@@ -46,15 +46,15 @@ function kaiketu(uservalue,userpass,pasr) {
 
 
 const pasf=function(uservalue,userpass,angou) {
-  console.log("aa"+angou)
-  endpoint="https://script.google.com/macros/s/AKfycbwgMpBcOvwBZJkk98sUvz0ngkMwxIERrcoKjiq3dyiINaCgIhbwPnl617K8ty4yq3mfng/exec?m=c&id="+String(uservalue)+"&pass="+encodeURI(angou)
+  console.log("aa="+encodeURIComponent(angou))
+  endpoint="https://script.google.com/macros/s/AKfycbwgMpBcOvwBZJkk98sUvz0ngkMwxIERrcoKjiq3dyiINaCgIhbwPnl617K8ty4yq3mfng/exec?m=c&id="+String(uservalue)+"&pass="+encodeURIComponent(angou)
   fetch(endpoint)
     .then((response) => response.json())
         /*成功した処理*/
     .then((data1) => {
       console.log(data1)
       pd = JSON.parse(JSON.stringify(data1));
-      if (pd["status"] == "fault") {
+      if (pd["status"] != "success") {
         errorlog(pd)
       } else {
         document.cookie="session="+pd["as"]
