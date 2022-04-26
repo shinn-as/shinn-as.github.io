@@ -61,7 +61,7 @@ const pasf=function(uservalue,userpass,angou) {
       if (pd["status"] != "success") {
         errorlog(pd)
       } else {
-        document.cookie="session="+pd["as"]+";max-age=10"
+        document.cookie="session="+pd["as"]+";max-age="
         window.location.href =document.referrer
       }
     })
